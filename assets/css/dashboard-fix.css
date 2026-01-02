@@ -1,0 +1,158 @@
+/* ===================================
+   DASHBOARD SPECIFIC TEXT VISIBILITY FIX
+   Targets dashboard page visibility issues
+   =================================== */
+
+/* ===== DASHBOARD HEADINGS ===== */
+
+/* All dashboard headings should be visible */
+.dashboard-page h1,
+.dashboard-page h2,
+.dashboard-page h3,
+.dashboard-page h4,
+.dashboard-page h5,
+.dashboard-page h6 {
+    color: #1f2937 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+}
+
+/* Card headers in dashboard */
+.card-header h1,
+.card-header h2,
+.card-header h3,
+.card-header h4,
+.card-header h5,
+.card-header h6 {
+    color: white !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Card titles */
+.card-title {
+    color: #1f2937 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* ===== DASHBOARD ICONS ===== */
+
+/* All icons in dashboard should be visible */
+.dashboard-page i,
+.dashboard-page .fas,
+.dashboard-page .fa,
+.dashboard-page .fab,
+.dashboard-page .far {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline-block !important;
+}
+
+/* Specific icon fixes */
+.fa-user,
+.fa-shopping-bag,
+.fa-shopping-cart,
+.fa-sign-out-alt,
+.fa-dollar-sign {
+    opacity: 1 !important;
+    visibility: visible !important;
+    color: inherit !important;
+}
+
+/* ===== DASHBOARD BUTTONS ===== */
+
+/* Button text should be visible */
+.dashboard-page .btn {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.dashboard-page .btn i,
+.dashboard-page .btn .fas,
+.dashboard-page .btn .fa {
+    opacity: 1 !important;
+    visibility: visible !important;
+    color: inherit !important;
+}
+
+/* ===== DASHBOARD SPECIFIC ELEMENTS ===== */
+
+/* User profile section */
+.bg-primary .fa-user {
+    color: white !important;
+    opacity: 1 !important;
+}
+
+/* Statistics cards */
+.text-primary .fa-shopping-bag,
+.text-success .fa-shopping-cart,
+.text-info .fa-dollar-sign {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Quick actions buttons */
+.btn-outline-primary,
+.btn-outline-secondary,
+.btn-outline-danger {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.btn-outline-primary i,
+.btn-outline-secondary i,
+.btn-outline-danger i {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* ===== OVERRIDE ANY CONFLICTS ===== */
+
+/* Force visibility for all dashboard elements */
+.container * {
+    opacity: inherit !important;
+}
+
+.container i,
+.container .fas,
+.container .fa {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.container h1,
+.container h2,
+.container h3,
+.container h4,
+.container h5,
+.container h6 {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* ===== BADGE VISIBILITY ===== */
+
+.badge {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.bg-info .badge {
+    color: white !important;
+    opacity: 1 !important;
+}
+
+.bg-primary .badge {
+    color: white !important;
+    opacity: 1 !important;
+}
+
+/* ===== TEXT MUTED FIX ===== */
+
+.text-muted {
+    opacity: 0.8 !important;
+    visibility: visible !important;
+    color: #64748b !important;
+}
