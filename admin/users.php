@@ -183,8 +183,10 @@ $users = $stmt->fetchAll();
                                                 <td>
                                                     <form method="POST" style="display: inline;" onsubmit="return confirm('Are you sure you want to delete this user?')">
                                                         <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
-                                                        <button type="submit" name="delete_user" class="btn btn-sm btn-outline-danger" <?php echo $user['order_count'] > 0 ? 'disabled' : ''; ?>>
-                                                            <i class="fas fa-trash"></i>
+                                                        <button type="submit" name="delete_user" class="btn btn-sm btn-danger" 
+                                                                style="background: red !important; color: white !important; border: 1px solid red !important;" 
+                                                                <?php echo $user['order_count'] > 0 ? 'disabled' : ''; ?>>
+                                                            <i class="fas fa-trash"></i> DELETE
                                                         </button>
                                                     </form>
                                                 </td>

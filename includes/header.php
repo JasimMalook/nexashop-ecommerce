@@ -36,18 +36,208 @@ $_SESSION['cart_count'] = $total_items;
     <!-- Premium CSS -->
     <link href="assets/css/premium-style.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="assets/css/style.css" rel="stylesheet">
-    <!-- Text Visibility Fix CSS -->
-    <link href="assets/css/text-fix.css" rel="stylesheet">
+    <link href="../assets/css/style.css?v=<?php echo time() . rand(1000, 9999); ?>" rel="stylesheet">
     
     <style>
+        /* CRITICAL INLINE STYLES - Force Apply */
+        .hero h1,
+        .hero-section h1,
+        section.hero-section h1,
+        .display-3 {
+            color: #ffffff !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            text-shadow: none !important;
+            font-weight: 700 !important;
+            background: transparent !important;
+            border: none !important;
+            display: block !important;
+            position: relative !important;
+            z-index: 9999 !important;
+        }
+        
+        .hero .h1,
+        .hero-section .h1,
+        section.hero-section .h1 {
+            color: #ffffff !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            text-shadow: none !important;
+            font-weight: 700 !important;
+            background: transparent !important;
+            border: none !important;
+            display: block !important;
+            position: relative !important;
+            z-index: 9999 !important;
+        }
+        
+        .hero-title {
+            color: #ffffff !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            text-shadow: none !important;
+            font-weight: 700 !important;
+            background: transparent !important;
+            border: none !important;
+            display: block !important;
+            position: relative !important;
+            z-index: 9999 !important;
+        }
+        
+        h1.hero-title {
+            color: #ffffff !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            text-shadow: none !important;
+            font-weight: 700 !important;
+            background: transparent !important;
+            border: none !important;
+            display: block !important;
+            position: relative !important;
+            z-index: 9999 !important;
+        }
+        
+        /* Target any h1 inside hero section */
+        section.hero h1,
+        div.hero h1,
+        .hero-section h1,
+        .hero-container h1 {
+            color: #ffffff !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            text-shadow: none !important;
+            font-weight: 700 !important;
+            background: transparent !important;
+            border: none !important;
+            display: block !important;
+            position: relative !important;
+            z-index: 9999 !important;
+        }
+        
+        /* Target Bootstrap display-3 class */
+        .display-3 {
+            color: #ffffff !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            text-shadow: none !important;
+            font-weight: 700 !important;
+            background: transparent !important;
+            border: none !important;
+        }
+        
+        /* Target fw-bold class in hero */
+        .hero-section .fw-bold,
+        .hero .fw-bold {
+            color: #ffffff !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            text-shadow: none !important;
+            font-weight: 700 !important;
+        }
+        
+        .hero p,
+        .hero-section p {
+            color: #ffffff !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        
+        .subscribe h2 {
+            color: white !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            text-shadow: none !important;
+            font-weight: 600 !important;
+        }
+        
+        .subscribe p {
+            color: white !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%) !important;
+            color: white !important;
+            border-top: 3px solid #667eea !important;
+        }
+        
+        footer h5 {
+            color: white !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            font-weight: 600 !important;
+        }
+        
+        footer a {
+            color: #9ca3af !important;
+            opacity: 1 !important;
+        }
+        
+        footer a:hover {
+            color: white !important;
+        }
+        
+        /* Force style refresh */
         .cart-count {
             position: absolute;
             top: -8px;
+            right: -8px;
+            font-size: 0.7rem;
+            min-width: 18px;
+            text-align: center;
+        }
+        
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: #f8f9fa;
             color: #333;
+        }
+        
+        /* Title Visibility Fix - CRITICAL */
+        h1, h2, h3, h4, h5, h6 {
+            color: #1f2937 !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            text-shadow: none !important;
+            font-weight: 600 !important;
+            display: block !important;
+            position: relative !important;
+            z-index: 1 !important;
+        }
+        
+        .card-title {
+            color: #1f2937 !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            text-shadow: none !important;
+            font-weight: 600 !important;
+            display: block !important;
+        }
+        
+        .card-header h5, .card-header h6 {
+            color: #1f2937 !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            text-shadow: none !important;
+            font-weight: 600 !important;
+            display: block !important;
+        }
+        
+        .navbar-brand {
+            color: white !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            text-shadow: none !important;
+            font-weight: 700 !important;
+        }
+        
+        .page-title, .section-title {
+            color: #1f2937 !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            text-shadow: none !important;
+            font-weight: 600 !important;
         }
         
         /* User Avatar Styles */
@@ -91,6 +281,7 @@ $_SESSION['cart_count'] = $total_items;
             border-radius: 8px;
             padding: 10px 16px;
             transition: all 0.2s ease;
+            color: #333 !important;
         }
         
         .dropdown-item:hover {
@@ -154,14 +345,6 @@ $_SESSION['cart_count'] = $total_items;
             }
         }
         
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            font-size: 0.7rem;
-            min-width: 18px;
-            text-align: center;
-        }
         .cart-icon-wrapper {
             position: relative;
         }

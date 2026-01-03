@@ -1,6 +1,51 @@
 /* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
+/* CRITICAL TITLE VISIBILITY FIX */
+h1, h2, h3, h4, h5, h6 {
+    color: #1f2937 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    text-shadow: none !important;
+    font-weight: 600 !important;
+    display: block !important;
+    position: relative !important;
+    z-index: 10 !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+/* Universal Title Classes */
+.page-title, .section-title, .card-title, .modal-title {
+    color: #1f2937 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    text-shadow: none !important;
+    font-weight: 600 !important;
+    display: block !important;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+/* Card Headers */
+.card-header h5, .card-header h6, .card-header .h5, .card-header .h6 {
+    color: #1f2937 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    text-shadow: none !important;
+    font-weight: 600 !important;
+    display: block !important;
+}
+
+/* Navbar Brand */
+.navbar-brand {
+    color: white !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    text-shadow: none !important;
+    font-weight: 700 !important;
+}
+
 /* Global Styles */
 :root {
     --primary-color: #6366f1;
@@ -32,6 +77,10 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     margin-bottom: 1rem;
+    color: var(--dark-color) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    text-shadow: none !important;
 }
 
 /* Buttons */
@@ -128,12 +177,119 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
+    color: white !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    text-shadow: none !important;
 }
 
 .hero p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
     opacity: 0.9;
+    color: white !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Subscribe Section */
+.subscribe {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.subscribe h2 {
+    color: white !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    text-shadow: none !important;
+    font-weight: 600 !important;
+    margin-bottom: 1rem;
+}
+
+.subscribe p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    margin-bottom: 2rem;
+}
+
+/* Enhanced Footer */
+footer {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    color: white;
+    padding: 3rem 0 1rem;
+    margin-top: 5rem;
+    border-top: 3px solid #667eea;
+}
+
+footer h5 {
+    color: white !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    font-weight: 600 !important;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+footer a {
+    color: #9ca3af !important;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+footer a:hover {
+    color: white !important;
+    transform: translateY(-2px);
+}
+
+footer .text-muted {
+    color: #6b7280 !important;
+    opacity: 1 !important;
+}
+
+/* Footer Brand */
+footer .navbar-brand {
+    color: white !important;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* Footer Icons */
+footer .social-icons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    background: #667eea;
+    transform: translateY(-3px);
+}
+
+/* Footer Bottom */
+footer .footer-bottom {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1rem 0;
+    margin-top: 2rem;
+    border-radius: 10px;
+}
+
+footer .footer-bottom p {
+    color: #9ca3af !important;
+    margin: 0;
+    font-size: 0.9rem;
 }
 
 /* Product Cards */

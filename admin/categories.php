@@ -213,13 +213,15 @@ if (isset($_GET['edit'])) {
                                                 </td>
                                                 <td><?php echo date('M j, Y', strtotime($category['created_at'])); ?></td>
                                                 <td>
-                                                    <button type="button" class="btn btn-sm btn-outline-primary" onclick="editCategory(<?php echo $category['id']; ?>)">
-                                                        <i class="fas fa-edit"></i>
-                                                    </button>
-                                                    <form method="POST" style="display: inline;" onsubmit="return confirm('Are you sure you want to delete this category?')">
+                                                    <a href="categories.php?edit=<?php echo $category['id']; ?>" class="btn btn-sm btn-primary" style="background: #007bff !important; color: white !important; border: 1px solid #007bff !important;">
+                                                        <i class="fas fa-edit"></i> EDIT
+                                                    </a>
+                                                    <form method="POST" style="display: inline; margin-left: 5px;" onsubmit="return confirm('Are you sure you want to delete this category?')">
                                                         <input type="hidden" name="category_id" value="<?php echo $category['id']; ?>">
-                                                        <button type="submit" name="delete_category" class="btn btn-sm btn-outline-danger" <?php echo $category['product_count'] > 0 ? 'disabled' : ''; ?>>
-                                                            <i class="fas fa-trash"></i>
+                                                        <button type="submit" name="delete_category" class="btn btn-sm btn-danger" 
+                                                                style="background: red !important; color: white !important; border: 1px solid red !important;" 
+                                                                <?php echo $category['product_count'] > 0 ? 'disabled' : ''; ?>>
+                                                            <i class="fas fa-trash"></i> DELETE
                                                         </button>
                                                     </form>
                                                 </td>
