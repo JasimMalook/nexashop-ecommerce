@@ -7,8 +7,8 @@
                 <div class="col-lg-4 mb-4 mb-lg-0">
                     <div class="footer-brand">
                         <h5 class="text-white mb-3 d-flex align-items-center">
-                            <img src="assets/images/logo.svg" alt="ShopSphere Logo" width="32" height="32" class="me-2" style="filter: brightness(0) invert(1);">
-                            ShopSphere
+                            <img src="assets/images/nexashop-logo.svg" alt="NexaShop Logo" width="32" height="32" class="me-2" style="filter: brightness(0) invert(1);">
+                            NexaShop
                         </h5>
                         <p class="text-muted mb-0">Your trusted online shopping destination for quality products and great deals.</p>
                     </div>
@@ -72,12 +72,12 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <p class="text-muted mb-0 mb-md-0">
-                        &copy; <?php echo date('Y'); ?> ShopSphere. All rights reserved.
+                        © 2026 NexaShop. All rights reserved.
                     </p>
                 </div>
                 <div class="col-md-6 text-md-end">
                     <p class="text-muted mb-0">
-                        Made with <i class="fas fa-heart text-danger"></i> for great shopping experience
+                        Designed & Developed by Jasim Malook
                     </p>
                 </div>
             </div>

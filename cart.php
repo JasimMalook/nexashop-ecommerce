@@ -1,8 +1,48 @@
 <?php
-// Set page title
-$page_title = "Shopping Cart - ShopSphere";
+// Start session
+session_start();
 
-// Include header first (this will start session and include db.php)
+// Handle cart actions at TOP - BEFORE any includes
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Delete single item
+    if (isset($_POST['delete_item'])) {
+        $product_id = (int)$_POST['product_id'];
+        if (isset($_SESSION['cart'][$product_id])) {
+            unset($_SESSION['cart'][$product_id]);
+            $_SESSION['success_message'] = "Item removed from cart";
+        }
+        header("Location: cart.php");
+        exit;
+    }
+    
+    // Clear entire cart
+    if (isset($_POST['clear_cart'])) {
+        unset($_SESSION['cart']);
+        $_SESSION['success_message'] = "Cart cleared successfully";
+        header("Location: cart.php");
+        exit;
+    }
+    
+    // Update cart quantities
+    if (isset($_POST['update_cart'])) {
+        if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+            foreach ($_POST['quantity'] as $product_id => $quantity) {
+                $quantity = (int)$quantity;
+                if ($quantity > 0 && isset($_SESSION['cart'][$product_id])) {
+                    $_SESSION['cart'][$product_id]['quantity'] = $quantity;
+                }
+            }
+        }
+        $_SESSION['success_message'] = "Cart updated successfully";
+        header("Location: cart.php");
+        exit;
+    }
+}
+
+// Set page title
+$page_title = "Shopping Cart - NexaShop";
+
+// Include header AFTER cart actions
 require_once 'includes/header.php';
 
 // Check if user is logged in
@@ -12,7 +52,7 @@ if (!isLoggedIn()) {
     redirect('auth/login.php');
 }
 
-// Initialize cart from session using new cart structure
+// Initialize cart from session
 $cart_items = [];
 $total_amount = 0;
 
@@ -44,6 +84,14 @@ $total = $subtotal + $tax + $shipping;
 
 <section class="py-4 bg-white">
     <div class="container">
+        <?php if (isset($_SESSION['success_message'])): ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <?php echo $_SESSION['success_message']; ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+            <?php unset($_SESSION['success_message']); ?>
+        <?php endif; ?>
+        
         <div class="d-flex justify-content-between align-items-center">
             <h4 class="mb-0">
                 <i class="fas fa-shopping-cart me-2"></i>Shopping Cart
@@ -84,71 +132,69 @@ $total = $subtotal + $tax + $shipping;
                             <h6 class="mb-0 fw-bold">Cart Items</h6>
                         </div>
                         <div class="card-body p-0">
-                            <div class="table-responsive">
-                                <table class="table table-hover mb-0">
-                                    <thead class="table-light">
-                                        <tr>
-                                            <th>Product</th>
-                                            <th>Price</th>
-                                            <th>Quantity</th>
-                                            <th>Total</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach ($cart_items as $item): ?>
+                            <form method="POST" action="cart.php">
+                                <div class="table-responsive">
+                                    <table class="table mb-0">
+                                        <thead>
                                             <tr>
-                                                <td>
-                                                    <div class="d-flex align-items-center">
-                                                        <img src="assets/images/products/<?php echo htmlspecialchars($item['image']); ?>" 
-                                                             alt="<?php echo htmlspecialchars($item['name']); ?>" 
-                                                             class="me-3 rounded-soft" 
-                                                             style="width: 60px; height: 60px; object-fit: cover;">
-                                                        <div>
-                                                            <h6 class="mb-1"><?php echo htmlspecialchars($item['name']); ?></h6>
-                                                            <small class="text-muted">In stock: <?php echo $item['stock']; ?></small>
+                                                <th>Product</th>
+                                                <th>Price</th>
+                                                <th>Quantity</th>
+                                                <th>Total</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach ($cart_items as $item): ?>
+                                                <tr>
+                                                    <td>
+                                                        <div class="d-flex align-items-center">
+                                                            <img src="assets/images/products/<?php echo htmlspecialchars($item['image']); ?>" 
+                                                                 alt="<?php echo htmlspecialchars($item['name']); ?>" 
+                                                                 class="me-3 rounded-soft" 
+                                                                 style="width: 60px; height: 60px; object-fit: cover;">
+                                                            <div>
+                                                                <h6 class="mb-1"><?php echo htmlspecialchars($item['name']); ?></h6>
+                                                                <small class="text-muted">In stock: <?php echo $item['stock']; ?></small>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <span class="fw-bold text-primary">$<?php echo number_format($item['price'], 2); ?></span>
-                                                </td>
-                                                <td>
-                                                    <div class="quantity-control">
+                                                    </td>
+                                                    <td>
+                                                        <span class="fw-bold text-primary">$<?php echo number_format($item['price'], 2); ?></span>
+                                                    </td>
+                                                    <td>
                                                         <input type="number" name="quantity[<?php echo $item['id']; ?>]" 
                                                                value="<?php echo $item['quantity']; ?>" 
                                                                min="1" max="<?php echo $item['stock']; ?>" 
                                                                class="form-control form-control-sm">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <span class="fw-bold">$<?php echo number_format($item['subtotal'], 2); ?></span>
-                                                </td>
-                                                <td>
-                                                    <form method="POST" action="cart.php" class="d-inline">
-                                                        <input type="hidden" name="product_id" value="<?php echo $item['id']; ?>">
-                                                        <button type="submit" name="remove_item" class="btn btn-sm btn-outline-danger">
-                                                            <i class="fas fa-trash"></i>
-                                                        </button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                        <?php endforeach; ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                            
-                            <div class="d-flex justify-content-between align-items-center p-3 border-top">
-                                <button type="submit" name="update_cart" class="btn btn-primary shadow-soft">
-                                    <i class="fas fa-sync"></i> Update Cart
-                                </button>
-                                <form method="POST" action="cart.php" class="d-inline">
+                                                    </td>
+                                                    <td>
+                                                        <span class="fw-bold">$<?php echo number_format($item['subtotal'], 2); ?></span>
+                                                    </td>
+                                                    <td>
+                                                        <form method="POST" action="cart.php" style="display: inline;">
+                                                            <input type="hidden" name="product_id" value="<?php echo $item['id']; ?>">
+                                                            <button type="submit" name="delete_item" class="btn btn-sm btn-outline-danger">
+                                                                <i class="fas fa-trash"></i>
+                                                            </button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <div class="d-flex justify-content-between align-items-center p-3 border-top">
+                                    <button type="submit" name="update_cart" class="btn btn-primary shadow-soft">
+                                        <i class="fas fa-sync"></i> Update Cart
+                                    </button>
                                     <button type="submit" name="clear_cart" class="btn btn-outline-danger" 
                                             onclick="return confirm('Are you sure you want to clear your cart?')">
                                         <i class="fas fa-trash"></i> Clear Cart
                                     </button>
-                                </form>
-                            </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

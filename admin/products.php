@@ -1,4 +1,9 @@
 <?php
+// Start session
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 require_once '../config/db.php';
 
 // Check if admin is logged in
@@ -134,7 +139,7 @@ if (isset($_GET['edit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products Management - ShopSphere Admin</title>
+    <title>Products Management - NexaShop Admin</title>
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -242,13 +247,13 @@ if (isset($_GET['edit'])) {
                                                     </span>
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-sm btn-outline-primary" onclick="editProduct(<?php echo $product['id']; ?>)">
-                                                        <i class="fas fa-edit"></i>
-                                                    </button>
-                                                    <form method="POST" style="display: inline;" onsubmit="return confirm('Are you sure you want to delete this product?')">
+                                                    <a href="products.php?edit=<?php echo $product['id']; ?>" class="btn btn-sm btn-outline-primary">
+                                                        <i class="fas fa-edit"></i> Edit
+                                                    </a>
+                                                    <form method="POST" style="display: inline; margin-left: 5px;" onsubmit="return confirm('Are you sure you want to delete this product?')">
                                                         <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
-                                                        <button type="submit" name="delete_product" class="btn btn-sm btn-outline-danger">
-                                                            <i class="fas fa-trash"></i>
+                                                        <button type="submit" name="delete_product" class="btn btn-sm btn-danger" style="background: red !important; color: white !important; border: 1px solid red !important;">
+                                                            <i class="fas fa-trash"></i> DELETE
                                                         </button>
                                                     </form>
                                                 </td>

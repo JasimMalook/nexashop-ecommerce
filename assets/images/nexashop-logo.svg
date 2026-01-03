@@ -1,0 +1,30 @@
+<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="nexaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Modern N + Shopping Cart Concept -->
+  <g transform="translate(6, 8)">
+    <!-- Letter N -->
+    <path d="M2 2 L2 12 L8 5 L8 12 L10 12 L10 5 L12 5 L12 12 L14 12 L14 5 L16 5 L16 12 L18 12" 
+          stroke="url(#nexaGradient)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Shopping Cart Base -->
+    <rect x="20" y="8" width="12" height="14" rx="2" 
+          fill="url(#nexaGradient)" opacity="0.9"/>
+    
+    <!-- Cart Handle -->
+    <path d="M24 8 C24 6, 26 6, 26 8" 
+          stroke="url(#nexaGradient)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    
+    <!-- Cart Items -->
+    <circle cx="24" cy="12" r="1" fill="white" opacity="0.9"/>
+    <circle cx="28" cy="13" r="1" fill="white" opacity="0.9"/>
+  </g>
+  
+  <!-- Modern Glow Effect -->
+  <circle cx="20" cy="20" r="18" fill="none" stroke="url(#nexaGradient)" stroke-width="0.5" opacity="0.3"/>
+</svg>

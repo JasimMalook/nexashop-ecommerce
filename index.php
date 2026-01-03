@@ -1,6 +1,6 @@
 <?php
 // Set page title
-$page_title = "ShopSphere - Premium eCommerce Store";
+$page_title = "NexaShop - Modern eCommerce Store";
 
 // Include header
 require_once 'includes/header.php';

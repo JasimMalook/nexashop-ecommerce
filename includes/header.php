@@ -23,7 +23,7 @@ $_SESSION['cart_count'] = $total_items;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo isset($page_title) ? htmlspecialchars($page_title) : 'ShopSphere - Premium eCommerce Store'; ?></title>
+    <title><?php echo isset($page_title) ? htmlspecialchars($page_title) : 'NexaShop - Modern eCommerce Store'; ?></title>
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -189,11 +189,11 @@ $_SESSION['cart_count'] = $total_items;
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%) !important; z-index: 1030 !important; display: block !important; visibility: visible !important; opacity: 1 !important;">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important; z-index: 1030 !important; display: block !important; visibility: visible !important; opacity: 1 !important;">
         <div class="container">
             <a class="navbar-brand fw-bold d-flex align-items-center" href="index.php" style="color: white !important; opacity: 1 !important; visibility: visible !important;">
-                <img src="assets/images/logo.svg" alt="ShopSphere Logo" width="40" height="40" class="me-2" style="filter: brightness(0) invert(1);">
-                ShopSphere
+                <img src="assets/images/nexashop-logo.svg" alt="NexaShop Logo" width="40" height="40" class="me-2" style="filter: brightness(0) invert(1);">
+                NexaShop
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="opacity: 1 !important; visibility: visible !important;">
