@@ -36,7 +36,7 @@ $_SESSION['cart_count'] = $total_items;
     <!-- Premium CSS -->
     <link href="assets/css/premium-style.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="../assets/css/style.css?v=<?php echo time() . rand(1000, 9999); ?>" rel="stylesheet">
+    <link href="../assets/css/style.css?v=<?php echo time() . rand(10000, 99999); ?>" rel="stylesheet">
     
     <style>
         /* CRITICAL INLINE STYLES - Force Apply */
