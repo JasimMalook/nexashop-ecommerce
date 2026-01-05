@@ -1,7 +1,7 @@
 -- eCommerce Database Schema
 -- Create database
-CREATE DATABASE IF NOT EXISTS ecommerce_db;
-USE ecommerce_db;
+-- CREATE DATABASE IF NOT EXISTS ecommerce_db;
+-- USE ecommerce_db;
 
 -- Users table with proper structure
 CREATE TABLE users (

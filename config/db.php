@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 // Database configuration
 $host = 'localhost';
 $dbname = 'ecommerce_db';
@@ -76,4 +76,4 @@ function ensureAdminExists($mysqli) {
 
 // Ensure admin exists on every page load
 ensureAdminExists($mysqli);
-?>
+?> -->
